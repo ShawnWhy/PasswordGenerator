@@ -77,6 +77,24 @@ function rouletteButton(){
 actBtn[0].addEventListener("click", rouletteButton);
 actBtn[1].addEventListener("click",showPassword);
  
+var copyButton = document.querySelectorAll(".CopyButton");
+copyButton.addEventListener("click",function(){
+    passwordDisplay[0].select();
+    passwordDisplay[0].setSelectionRange(0.99999);
+        document.execCommand("copy");})
+
+// })
+// function copy(){\
+
+// }
+
+
+// function myFunction() {
+//     var copyText = document.getElementById("myInput");
+//     copyText.select();
+//     copyText.setSelectionRange(0, 99999)
+//     document.execCommand("copy");
+//     alert("Copied the text: " + c
 
 // setInterval(function(){ alert("Hello"); }, 3000);
 
@@ -155,4 +173,3 @@ actBtn[1].addEventListener("click",showPassword);
 // for ( var i = 0; i<password.length; i++){
     
 
-// }

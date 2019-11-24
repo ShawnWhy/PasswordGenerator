@@ -136,7 +136,7 @@ left:1%;
     text-align:center;
     position:relative;
     margin:auto;
-    top:20%;
+    top:10%;
     background-color: rebeccapurple;
     border-radius: 20px;
     color:red;
@@ -169,7 +169,10 @@ left:1%;
     transform:scale(1.5)
 }
 
-
+.roundButton:hover{
+    background-color: orchid;
+    transform:scale(.75);
+}
 
 
 .off{
