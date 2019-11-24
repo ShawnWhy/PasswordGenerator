@@ -78,9 +78,9 @@ actBtn[0].addEventListener("click", rouletteButton);
 actBtn[1].addEventListener("click",showPassword);
  
 var copyButton = document.querySelectorAll(".CopyButton");
-copyButton.addEventListener("click",function(){
+copyButton[0].addEventListener("click",function(){
     passwordDisplay[0].select();
-    passwordDisplay[0].setSelectionRange(0.99999);
+    passwordDisplay[0].setSelectionRange(0,99999)
         document.execCommand("copy");})
 
 // })
