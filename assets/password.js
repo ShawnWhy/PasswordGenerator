@@ -2,7 +2,11 @@
 
 var password = [];
 var firstNumberSegmentRoll=document.querySelectorAll(".roulette1");
-var numbersAndLetters="1234567890";
+var numbersAndLetters="";
+var specialCharacters = "!!@#$%^&*()_+";
+var upperCaseCharacters="ABCDEFGHIJKLMONPQRSTUVWXYZ";
+var lowerCaseCharacters="sbcdefghijklmnopqrstuvwxyz";
+var numbers="1234567890";
 var SecondNumberSegmentRoll=document.querySelectorAll(".roulette2");
 var ThirdNumberSegmentRoll=document.querySelectorAll(".roulette3");
 var TurnOnButton = document.querySelector(".roundButton");
@@ -18,6 +22,23 @@ var header;
 var intertion;
 var animalInput =  document.querySelectorAll(".animalInput");
 var AuthorInput = document.querySelectorAll(".AuthorInput");
+var numbersChecked=document.querySelector("#numbersCheckBox");
+var upperCaseChecked=document.querySelector("#upperCaseCheckBox");
+var lowerCaseChecked=document.querySelector("#lowerCaseCheckBox")
+var charactersChecked=document.querySelector("#charactersCheckBox");
+
+if(numbersChecked.checked=true){
+    numbersAndLetters=numbersAndLetters+numbers;
+};
+if(upperCaseChecked.checked=true){
+    numbersAndLetters=numbersAndLetters+upperCaseCharacters;
+};
+if(lowerCaseCharacters.checked=true){
+    numbersAndLetters=numbersAndLetters+lowerCaseCharacters;
+};
+if(specialCharacters.checked=true){
+    numbersAndLetters=numbersAndLetters+specialCharacters;
+};
 
 var numbersAndLettersArray=[];
     numbersAndLettersArray = numbersAndLetters.trim().split("")
@@ -60,17 +81,18 @@ function rouletteButton(){
         for (i=0; i<8;i++){
         strings[i]= numbersAndLettersArray[Math.floor(Math.random()*numbersAndLetters.length+1)];};
         if(strings){
-            var stringsCombined=strings.join("");
+            var stringsCombined= strings.join("");
         };
         numberRoulette[j].value = stringsCombined;
       
         columns[j].classList.add("rollAnimation");
 
         //I cant get the Interval to stop
-        if(j>4){clearInterval(rouletteRoll);};
-        if(numberRoulette[j]=="undefined"){clearInterval(rouletteRoll);};
+        
         },1000);
+        if(j===4){clearInterval(rouletteRoll);};
         if(numberRoulette[j]=="undefined"){clearInterval(rouletteRoll);};
+        
         
     }
 
@@ -82,6 +104,10 @@ copyButton[0].addEventListener("click",function(){
     passwordDisplay[0].select();
     passwordDisplay[0].setSelectionRange(0,99999)
         document.execCommand("copy");})
+
+
+// function check() {
+//             document.getElementById("myCheck").checked = true;
 
 // })
 // function copy(){\

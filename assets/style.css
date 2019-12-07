@@ -195,3 +195,10 @@ border:5px solid black;
     animation-duration:1s;
 
 }
+
+#checkerboxcontainer{
+    position:fixed;
+    top:45%;
+
+
+}
