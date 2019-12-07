@@ -2,7 +2,8 @@
 
 var password = [];
 var firstNumberSegmentRoll=document.querySelectorAll(".roulette1");
-var numbersAndLetters="";
+var numbersAndLetters=[];
+
 var specialCharacters = "!!@#$%^&*()_+";
 var upperCaseCharacters="ABCDEFGHIJKLMONPQRSTUVWXYZ";
 var lowerCaseCharacters="sbcdefghijklmnopqrstuvwxyz";
@@ -22,27 +23,70 @@ var header;
 var intertion;
 var animalInput =  document.querySelectorAll(".animalInput");
 var AuthorInput = document.querySelectorAll(".AuthorInput");
-var numbersChecked=document.querySelector("#numbersCheckBox");
-var upperCaseChecked=document.querySelector("#upperCaseCheckBox");
-var lowerCaseChecked=document.querySelector("#lowerCaseCheckBox")
-var charactersChecked=document.querySelector("#charactersCheckBox");
-
-if(numbersChecked.checked=true){
-    numbersAndLetters=numbersAndLetters+numbers;
-};
-if(upperCaseChecked.checked=true){
-    numbersAndLetters=numbersAndLetters+upperCaseCharacters;
-};
-if(lowerCaseCharacters.checked=true){
-    numbersAndLetters=numbersAndLetters+lowerCaseCharacters;
-};
-if(specialCharacters.checked=true){
-    numbersAndLetters=numbersAndLetters+specialCharacters;
-};
-
+var numbersChecked = document.querySelector("#numbersCheckBox");
+var upperCaseChecked = document.querySelector("#upperCaseCheckBox");
+var lowerCaseChecked = document.querySelector("#lowerCaseCheckBox")
+var charactersChecked = document.querySelector("#charactersCheckBox");
 var numbersAndLettersArray=[];
-    numbersAndLettersArray = numbersAndLetters.trim().split("")
+var j=0;
+
+
+numbersChecked.addEventListener("change", function(){
+    if (this.checked){
+        numbersAndLetters.push(numbers);}
     
+    else if (numbersAndLetters.indexOf(numbers)!==-1){
+        var itemIndex = numbersAndLetters.indexOf(numbers);
+        
+        numbersAndLetters.splice(itemIndex,1)};
+    alert(numbersAndLetters);
+
+});
+upperCaseChecked.addEventListener("change", function(){
+    if (this.checked){
+        numbersAndLetters.push(upperCaseCharacters);}
+    
+    else if (numbersAndLetters.indexOf(upperCaseCharacters)!==-1){
+        var itemIndex = numbersAndLetters.indexOf(upperCaseCharacters);
+        
+        numbersAndLetters.splice(itemIndex,1)};
+    alert(numbersAndLetters);
+
+});
+lowerCaseChecked.addEventListener("change", function(){
+    if (this.checked){
+        numbersAndLetters.push(lowerCaseCharacters);}
+    
+    else if (numbersAndLetters.indexOf(lowerCaseCharacters)!==-1){
+        var itemIndex = numbersAndLetters.indexOf(lowerCaseCharacters);
+        
+        numbersAndLetters.splice(itemIndex,1)};
+    alert(numbersAndLetters);
+
+});
+charactersChecked.addEventListener("change", function(){
+    if (this.checked){
+        numbersAndLetters.push(specialCharacters);}
+    
+    else if (numbersAndLetters.indexOf(specialCharacters)!==-1){
+        var itemIndex = numbersAndLetters.indexOf(specialCharacters);
+        
+        numbersAndLetters.splice(itemIndex,1)};
+    alert(numbersAndLetters);
+
+});
+
+function generateCharacterPool(){
+
+
+    numbersAndLettersString = numbersAndLetters.toString();
+    console.log(numbersAndLettersString);
+    numbersAndLettersString=numbersAndLettersString.replace(",","");
+    numbersAndLettersArray=numbersAndLettersString.split("");
+    console.log(numbersAndLettersArray);
+};
+    
+
 
 //show password puts the password string as the value of the "password box input box"
 // Process password gathers the strings from 
@@ -72,6 +116,8 @@ function showPassword(){
     
 
 function rouletteButton(){
+generateCharacterPool()
+ 
  var j = -1;
  strings=[];
      var rouletteRoll = setInterval(function(){
@@ -79,7 +125,7 @@ function rouletteButton(){
         
        
         for (i=0; i<8;i++){
-        strings[i]= numbersAndLettersArray[Math.floor(Math.random()*numbersAndLetters.length+1)];};
+        strings[i]= numbersAndLettersArray[Math.floor(Math.random()*numbersAndLettersArray.length+1)];};
         if(strings){
             var stringsCombined= strings.join("");
         };
@@ -92,6 +138,7 @@ function rouletteButton(){
         },1000);
         if(j===4){clearInterval(rouletteRoll);};
         if(numberRoulette[j]=="undefined"){clearInterval(rouletteRoll);};
+        
         
         
     }
